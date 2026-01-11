@@ -1,0 +1,232 @@
+[gd_scene load_steps=13 format=3 uid="uid://g0jlluuu1but"]
+
+[ext_resource type="Script" uid="uid://by17drtefw5bn" path="res://Scenes/Player/red.gd" id="1_0i3ku"]
+[ext_resource type="Texture2D" uid="uid://1yvykjslbco0" path="res://Assets/Characters/Player/Lantern.png" id="2_0i3ku"]
+[ext_resource type="Texture2D" uid="uid://ry02dd4lug4f" path="res://Assets/Characters/Player/red_anims_small.png" id="2_dww6y"]
+[ext_resource type="Script" uid="uid://d4ljckphi4qlm" path="res://Scenes/Player/lantern_pivot.gd" id="3_2peue"]
+[ext_resource type="Texture2D" uid="uid://df5dnccvhc864" path="res://Assets/Characters/Player/Big_Light_Bright_Yellow.png" id="5_2peue"]
+[ext_resource type="Texture2D" uid="uid://qraler3fbcr8" path="res://Assets/Characters/Player/Lantern_Light_Bright_Yellow.png" id="6_dww6y"]
+
+[sub_resource type="Animation" id="Animation_2peue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LanternPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LanternPivot:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_0i3ku"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LanternPivot:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 9), Vector2(8, 10), Vector2(8, 11), Vector2(8, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LanternPivot:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dww6y"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LanternPivot:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LanternPivot:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 9), Vector2(9, 11), Vector2(8, 11), Vector2(7, 9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dww6y"]
+_data = {
+&"RESET": SubResource("Animation_2peue"),
+&"idle": SubResource("Animation_0i3ku"),
+&"walk": SubResource("Animation_dww6y")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2peue"]
+radius = 8.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oum0q"]
+radius = 47.0
+
+[node name="Red" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_0i3ku")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+light_mask = 4
+texture = ExtResource("2_dww6y")
+hframes = 4
+vframes = 8
+
+[node name="LanternPivot" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(8, 13)
+script = ExtResource("3_2peue")
+
+[node name="LanternSprite" type="Sprite2D" parent="LanternPivot"]
+light_mask = 4
+position = Vector2(0, 7)
+texture = ExtResource("2_0i3ku")
+
+[node name="LanternLight" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+z_index = 101
+position = Vector2(0, 1)
+scale = Vector2(31.902876, 31.902876)
+energy = 24.0
+texture = ExtResource("5_2peue")
+texture_scale = 0.1
+
+[node name="LanternLight2" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+light_mask = 2
+z_index = 101
+position = Vector2(0, 1)
+scale = Vector2(14.2120495, 14.2120495)
+energy = 7.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+texture = ExtResource("5_2peue")
+texture_scale = 0.1
+
+[node name="LanternLight3" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+light_mask = 4
+z_index = 101
+position = Vector2(0, 1)
+scale = Vector2(12.082286, 12.082286)
+energy = 3.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+texture = ExtResource("5_2peue")
+texture_scale = 0.1
+
+[node name="LanternLight4" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+light_mask = 4
+z_index = 101
+position = Vector2(-1, 1)
+scale = Vector2(1.6653745, 1.1326715)
+energy = 20.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+texture = ExtResource("6_dww6y")
+texture_scale = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dww6y")
+}
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_2peue")
+
+[node name="LanternLightArea" type="Area2D" parent="."]
+visible = false
+light_mask = 2
+collision_layer = 32
+collision_mask = 64
+
+[node name="LanternLightAreaCollider" type="CollisionShape2D" parent="LanternLightArea"]
+position = Vector2(-6, 23)
+scale = Vector2(1.455935, 1.455935)
+shape = SubResource("CircleShape2D_oum0q")
+debug_color = Color(0.6782504, 0.53166515, 0.9247831, 0.41960785)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp10g36p6wgv5"]
+
+[ext_resource type="Texture2D" uid="uid://edo4uwpfp5xh" path="res://Assets/MapleTales (Updated Characters)/MapleTales/Decorations/PineTree.png" id="1_ja7xr"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ja7xr"]
+polygon = PackedVector2Array(-3, -22, -1.6666667, -16, -4, -13.666667, -4.666667, -11, -8, -5.3333335, -4, -6, -7, 0.33333334, -11, 5.3333335, -11, 7.666667, -6.3333335, 5, -7.666667, 9.333334, -11, 15.666667, -12, 18, -8.333334, 16, -10.333334, 21.333334, -5.3333335, 18, 3, 22, 1, 17.333334, 10, 20.333334, 9, 17, 13, 19.333334, 12.333334, 15.666667, 5, 7.3333335, 8, 9.333334, 7.666667, 5.3333335, 3.6666667, -0.6666667, 5.666667, -1, 7, 0.33333334, 5.666667, -7, 0, -18.666668)
+
+[node name="Sprite2D" type="Sprite2D"]
+light_mask = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_ja7xr")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
+occluder = SubResource("OccluderPolygon2D_ja7xr")
+occluder_light_mask = 2
