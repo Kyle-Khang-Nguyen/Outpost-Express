@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b27lgf1blu5ah"]
 
 [ext_resource type="Texture2D" uid="uid://ceeb26v8562ug" path="res://Assets/MapleTales (Updated Characters)/MapleTales/TileSets/SnowTileSet.png" id="1_llg0y"]
-[ext_resource type="PackedScene" uid="uid://dp10g36p6wgv5" path="res://Scenes/Objects/PineTree.tscn" id="2_3tjwd"]
+[ext_resource type="PackedScene" uid="uid://dbd3nf8bmgxqb" path="res://Scenes/Objects/pine_tree.tscn" id="2_3tjwd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ay1i4"]
 texture = ExtResource("1_llg0y")
@@ -223,7 +223,7 @@ texture = ExtResource("1_llg0y")
 3:6/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_llg0y"]
-scenes/1/scene = ExtResource("2_3tjwd")
+scenes/2/scene = ExtResource("2_3tjwd")
 
 [resource]
 physics_layer_0/collision_layer = 1

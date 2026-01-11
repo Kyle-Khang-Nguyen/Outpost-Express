@@ -6,9 +6,33 @@ extends CharacterBody2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var lantern_pivot: Node2D = $LanternPivot
 
+#Lights
+@onready var lantern_light: PointLight2D = $LanternPivot/LanternSprite/LanternLight
+@onready var lantern_light_2: PointLight2D = $LanternPivot/LanternSprite/LanternLight2
+@onready var lantern_light_3: PointLight2D = $LanternPivot/LanternSprite/LanternLight3
+@onready var lantern_light_4: PointLight2D = $LanternPivot/LanternSprite/LanternLight4
+
+# Colliders
+@onready var lantern_light_area_collider: CollisionShape2D = $LanternLightArea/LanternLightAreaCollider
 
 @export var movement_speed : float = 200
 var character_direction : Vector2
+
+var lantern_on := true
+
+func _process(_delta):
+	if Input.is_action_just_pressed("toggle_light"):
+		lantern_on = !lantern_on
+
+		lantern_light.enabled = lantern_on
+		lantern_light_2.enabled = lantern_on
+		lantern_light_4.enabled = lantern_on
+
+		lantern_light_area_collider.call_deferred(
+			"set_disabled",
+			!lantern_on
+		)
+
 
 func _physics_process(delta: float) -> void:
 	character_direction.x = Input.get_axis("left", "right")
