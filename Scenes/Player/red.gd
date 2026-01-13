@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+signal lantern_state_changed(state: bool)
 
 @onready var sprite: Sprite2D = $PlayerSprite
 @onready var anim: AnimationPlayer = $AnimationPlayer
@@ -12,10 +13,10 @@ extends CharacterBody2D
 @onready var lantern_target: Node2D = $LanternSide/LanternTarget
 
 #Lights
-@onready var lantern_light: PointLight2D = $LanternSide/LanternPivot/LanternSprite/LanternLight
-@onready var lantern_light_2: PointLight2D = $LanternSide/LanternPivot/LanternSprite/LanternLight2
-@onready var lantern_light_3: PointLight2D = $LanternSide/LanternPivot/LanternSprite/LanternLight3
-@onready var lantern_light_4: PointLight2D = $LanternSide/LanternPivot/LanternSprite/LanternLight4
+@onready var lantern_light: PointLight2D = $Lantern/LanternSprite/LanternLight
+@onready var lantern_light_2: PointLight2D = $Lantern/LanternSprite/LanternLight2
+@onready var lantern_light_3: PointLight2D = $Lantern/LanternSprite/LanternLight3
+@onready var lantern_light_4: PointLight2D = $Lantern/LanternSprite/LanternLight4
 
 # Colliders
 @onready var lantern_light_area_collider: CollisionShape2D = $LanternLightArea/LanternLightAreaCollider
@@ -23,12 +24,14 @@ extends CharacterBody2D
 @export var movement_speed : float = 200
 var character_direction : Vector2
 
+
+var remaining_fuel = GameManager.fuel_amount
 var lantern_on := true
 
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_light"):
 		lantern_on = !lantern_on
-
+		lantern_state_changed.emit(lantern_on)
 		lantern_light.enabled = lantern_on
 		lantern_light_2.enabled = lantern_on
 		lantern_light_4.enabled = lantern_on

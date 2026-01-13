@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InventoryManager="*res://Scripts/inventory_manager.gd"
+GameManager="*res://Scenes/UI/GameManager.tscn"
 
 [display]
 

@@ -7,11 +7,17 @@
 size = Vector2(26, 28)
 
 [node name="Package1" type="Sprite2D"]
+light_mask = 4
 texture = ExtResource("2_y4602")
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_p1280")]
+collision_layer = 4
+collision_mask = 2
+collectable_name = "Package 1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_fr4cl")
 debug_color = Color(0.7546979, 0.41280565, 0.5248932, 0.41960785)
+
+[connection signal="body_entered" from="CollectableComponent" to="CollectableComponent" method="_on_body_entered"]
