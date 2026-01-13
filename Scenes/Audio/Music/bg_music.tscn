@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4rnbeintaaxy"]
+
+[ext_resource type="AudioStream" uid="uid://ckeqsl4q5u0ue" path="res://Assets/Music/TempBGMusic.ogg" id="1_834ux"]
+
+[node name="BGMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_834ux")
+volume_db = 7.0
+autoplay = true
