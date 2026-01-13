@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl87g71jsgef4"]
+
+[ext_resource type="Script" uid="uid://xaaf1825a8fj" path="res://npc.gd" id="1_7lr2c"]
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_7lr2c")
