@@ -21,30 +21,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LanternPivot:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, 13)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LanternPivot:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
 
 [sub_resource type="Animation" id="Animation_0i3ku"]
 resource_name = "idle"
@@ -63,30 +39,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LanternPivot:position")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -23), Vector2(8, -22), Vector2(8, -21), Vector2(8, -23)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LanternPivot:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
 
 [sub_resource type="Animation" id="Animation_dww6y"]
 resource_name = "walk"
@@ -100,34 +52,10 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.20000002, 0.39999998, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LanternPivot:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LanternPivot:position")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -23), Vector2(9, -21), Vector2(8, -21), Vector2(8, -23)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dww6y"]
@@ -160,17 +88,26 @@ offset = Vector2(0, -32)
 hframes = 4
 vframes = 8
 
-[node name="LanternPivot" type="Node2D" parent="."]
-z_index = -1
-position = Vector2(8, 13)
-script = ExtResource("3_2peue")
+[node name="LanternSide" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(2, -53)
 
-[node name="LanternSprite" type="Sprite2D" parent="LanternPivot"]
+[node name="LanternTarget" type="Node2D" parent="LanternSide"]
+
+[node name="Lantern" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-27, -58)
+script = ExtResource("3_2peue")
+target_path = NodePath("../LanternSide/LanternTarget")
+
+[node name="LanternSprite" type="Sprite2D" parent="Lantern"]
 light_mask = 4
+y_sort_enabled = true
 texture = ExtResource("2_0i3ku")
 offset = Vector2(0, 7)
 
-[node name="LanternLight" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+[node name="LanternLight" type="PointLight2D" parent="Lantern/LanternSprite"]
 z_index = 101
 position = Vector2(0, 1)
 scale = Vector2(31.902876, 31.902876)
@@ -178,7 +115,7 @@ energy = 24.0
 texture = ExtResource("5_2peue")
 texture_scale = 0.1
 
-[node name="LanternLight2" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+[node name="LanternLight2" type="PointLight2D" parent="Lantern/LanternSprite"]
 light_mask = 2
 z_index = 101
 position = Vector2(0, 1)
@@ -190,7 +127,7 @@ shadow_filter = 1
 texture = ExtResource("5_2peue")
 texture_scale = 0.1
 
-[node name="LanternLight3" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+[node name="LanternLight3" type="PointLight2D" parent="Lantern/LanternSprite"]
 light_mask = 4
 z_index = 101
 position = Vector2(0, 1)
@@ -202,7 +139,7 @@ shadow_filter = 1
 texture = ExtResource("5_2peue")
 texture_scale = 0.1
 
-[node name="LanternLight4" type="PointLight2D" parent="LanternPivot/LanternSprite"]
+[node name="LanternLight4" type="PointLight2D" parent="Lantern/LanternSprite"]
 light_mask = 4
 z_index = 101
 position = Vector2(-1, 1)
