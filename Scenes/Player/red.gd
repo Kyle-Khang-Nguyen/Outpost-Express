@@ -25,6 +25,8 @@ var character_direction : Vector2
 
 var lantern_on := true
 
+@onready var interaction_ray_cast: RayCast2D = $InteractionRayCast
+
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_light"):
 		lantern_on = !lantern_on
