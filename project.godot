@@ -18,7 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 InventoryManager="*res://Scripts/inventory_manager.gd"
+HEAD
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+GameManager="*res://Scenes/UI/GameManager.tscn"
+upstream/master
 
 [display]
 

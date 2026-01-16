@@ -1,15 +1,42 @@
-[gd_scene load_steps=7 format=4 uid="uid://cog76ap8a1gt2"]
+[gd_scene load_steps=13 format=4 uid="uid://cog76ap8a1gt2"]
 
 [ext_resource type="PackedScene" uid="uid://4rnbeintaaxy" path="res://Scenes/Audio/Music/bg_music.tscn" id="1_8utfd"]
 [ext_resource type="TileSet" uid="uid://b27lgf1blu5ah" path="res://Tilesets/game_tileset.tres" id="1_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://g0jlluuu1but" path="res://Scenes/Player/red.tscn" id="2_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://bs88wify015ve" path="res://Scenes/Components/dropoff_spot.tscn" id="4_8kalp"]
+[ext_resource type="Texture2D" uid="uid://do377wacdytit" path="res://Assets/MapleTales (Updated Characters)/MapleTales/Characters/BearIdle.png" id="5_b0awa"]
+[ext_resource type="Script" uid="uid://dng2vwebbuyqv" path="res://Scripts/quest.gd" id="6_sh5hy"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8utfd"]
 blend_mode = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4kb8"]
-size = Vector2(57, 20)
+size = Vector2(74.5, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2bcc"]
+atlas = ExtResource("5_b0awa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j0b1"]
+atlas = ExtResource("5_b0awa")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i01wx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2bcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j0b1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b0awa"]
+polygon = PackedVector2Array(-376, -162, -378, -162, -378, -160, -380, -160, -380, -158, -384, -158, -384, -160, -388, -160, -388, -158, -392, -158, -392, -160, -394, -160, -394, -162, -396, -162, -396, -164, -398, -164, -398, -166, -400, -166, -400, -174, -398, -174, -398, -178, -396, -178, -396, -182, -398, -182, -398, -186, -396, -186, -396, -188, -392, -188, -392, -186, -380, -186, -380, -188, -376, -188, -376, -186, -374, -186, -374, -182, -376, -182, -376, -178, -374, -178, -374, -174, -372, -174, -372, -166, -374, -166, -374, -164, -376, -164)
 
 [node name="MainTestScene" type="Node2D"]
 
@@ -61,11 +88,40 @@ metadata/_edit_use_anchors_ = true
 [node name="Sillouhettes" type="Node2D" parent="."]
 
 [node name="Dropoffs" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="DropoffSpot" parent="Dropoffs" instance=ExtResource("4_8kalp")]
+[node name="DropoffSpot1" parent="Dropoffs" node_paths=PackedStringArray("quest") instance=ExtResource("4_8kalp")]
+position = Vector2(-166, -20)
+collision_layer = 4
+collision_mask = 2
 required_item = "Package 1"
+quest = NodePath("Package1Quest")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dropoffs/DropoffSpot"]
-position = Vector2(-518.5, -194)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dropoffs/DropoffSpot1"]
+position = Vector2(-359, -166)
 shape = SubResource("RectangleShape2D_p4kb8")
-debug_color = Color(0.38187823, 0.6005209, 0.36118296, 0.41960785)
+debug_color = Color(0.97179455, 0, 0.440214, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dropoffs/DropoffSpot1"]
+light_mask = 4
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i01wx")
+offset = Vector2(-193, -86)
+
+[node name="Package1Quest" type="Node2D" parent="Dropoffs/DropoffSpot1"]
+position = Vector2(-359, -166)
+script = ExtResource("6_sh5hy")
+quest_name = "Deliver Package"
+quest_description = "Pick up the package for Outpost 1"
+reached_goal_text = "Deliver the package to Outpost 1"
+reward_fuel = 100
+metadata/_custom_type_script = "uid://dng2vwebbuyqv"
+
+[node name="Package1Spawnpoint" type="Marker2D" parent="Dropoffs/DropoffSpot1"]
+position = Vector2(-184, -150)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Dropoffs/DropoffSpot1"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_b0awa")
+
+[connection signal="body_entered" from="Dropoffs/DropoffSpot1" to="Dropoffs/DropoffSpot1" method="_on_body_entered"]
