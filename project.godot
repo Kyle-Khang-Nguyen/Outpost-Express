@@ -25,6 +25,13 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
@@ -34,9 +41,11 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 folder_colors={
 "res://Assets/": "red",
 "res://Dialogues/": "teal",
+"res://Interaction/": "orange",
 "res://Scenes/": "green",
 "res://Scripts/": "yellow",
-"res://Tilesets/": "gray"
+"res://Tilesets/": "gray",
+"res://addons/": "pink"
 }
 
 [input]
@@ -105,6 +114,7 @@ locale/translations_pot_files=PackedStringArray("res://Dialogues/Conversations/t
 2d_physics/layer_6="Lantern"
 2d_physics/layer_7="Detect"
 2d_physics/layer_8="Items"
+2d_physics/layer_9="Interaction"
 
 [rendering]
 

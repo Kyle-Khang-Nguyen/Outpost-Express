@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://qbuorj44bem4"]
+
+[ext_resource type="Script" uid="uid://2kstb65xf36s" path="res://Interaction/interaction_manager.gd" id="1_j22pa"]
+[ext_resource type="Theme" uid="uid://cycgd36bcqa5c" path="res://game_theme.tres" id="1_p4lj5"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_j22pa")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_p4lj5")
+theme_type_variation = &"TooltipLabel"
+text = "[E] TO INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1

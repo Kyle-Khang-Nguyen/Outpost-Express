@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cog76ap8a1gt2"]
+[gd_scene load_steps=14 format=4 uid="uid://cog76ap8a1gt2"]
 
 [ext_resource type="PackedScene" uid="uid://4rnbeintaaxy" path="res://Scenes/Audio/Music/bg_music.tscn" id="1_8utfd"]
 [ext_resource type="TileSet" uid="uid://b27lgf1blu5ah" path="res://Tilesets/game_tileset.tres" id="1_ay1i4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bs88wify015ve" path="res://Scenes/Components/dropoff_spot.tscn" id="4_8kalp"]
 [ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="4_b0awa"]
 [ext_resource type="Texture2D" uid="uid://do377wacdytit" path="res://Assets/MapleTales (Updated Characters)/MapleTales/Characters/BearIdle.png" id="5_b0awa"]
+[ext_resource type="Script" uid="uid://dng2vwebbuyqv" path="res://Scripts/quest.gd" id="7_sh5hy"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8utfd"]
 blend_mode = 3
@@ -112,15 +113,19 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i01wx")
 offset = Vector2(-193, -86)
 
-[node name="Package1Quest" type="Node2D" parent="Dropoffs/DropoffSpot1"]
-position = Vector2(-359, -166)
-metadata/_custom_type_script = "uid://dng2vwebbuyqv"
-
 [node name="Package1Spawnpoint" type="Marker2D" parent="Dropoffs/DropoffSpot1"]
 position = Vector2(-184, -150)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Dropoffs/DropoffSpot1"]
 visible = false
 occluder = SubResource("OccluderPolygon2D_b0awa")
+
+[node name="Package1Quest" type="Node2D" parent="Dropoffs/DropoffSpot1"]
+script = ExtResource("7_sh5hy")
+quest_name = "Delivery 1"
+quest_description = "Find and pick up package 1 for Outpost 2!"
+reached_goal_text = "Devliver package 1 to Outpost 2."
+reward_fuel = 500
+metadata/_custom_type_script = "uid://dng2vwebbuyqv"
 
 [connection signal="body_entered" from="Dropoffs/DropoffSpot1" to="Dropoffs/DropoffSpot1" method="_on_body_entered"]
