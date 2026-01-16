@@ -1,7 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://g0jlluuu1but"]
+
+[gd_scene load_steps=17 format=3 uid="uid://g0jlluuu1but"]
+
 
 [ext_resource type="Script" uid="uid://by17drtefw5bn" path="res://Scenes/Player/red.gd" id="1_0i3ku"]
 [ext_resource type="Texture2D" uid="uid://1yvykjslbco0" path="res://Assets/Characters/Player/Lantern.png" id="2_0i3ku"]
+[ext_resource type="PackedScene" uid="uid://bodm34xn2d01u" path="res://Scenes/Audio/SFX/staff_swing.tscn" id="2_cio05"]
 [ext_resource type="Texture2D" uid="uid://ry02dd4lug4f" path="res://Assets/Characters/Player/red_anims_small.png" id="2_dww6y"]
 [ext_resource type="Script" uid="uid://d4ljckphi4qlm" path="res://Scenes/Player/lantern_pivot.gd" id="3_2peue"]
 [ext_resource type="Texture2D" uid="uid://df5dnccvhc864" path="res://Assets/Characters/Player/Big_Light_Bright_Yellow.png" id="5_2peue"]
@@ -21,6 +24,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cio05"]
+resource_name = "attack"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_0i3ku"]
@@ -62,6 +82,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dww6y"]
 _data = {
 &"RESET": SubResource("Animation_2peue"),
+&"attack": SubResource("Animation_cio05"),
 &"idle": SubResource("Animation_0i3ku"),
 &"walk": SubResource("Animation_dww6y")
 }
@@ -76,16 +97,22 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_oum0q"]
 radius = 47.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cio05"]
+size = Vector2(38.75, 23)
+
 [node name="Red" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_0i3ku")
 
+[node name="StaffSwing" parent="." instance=ExtResource("2_cio05")]
+pitch_scale = 0.7
+
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 light_mask = 4
 texture = ExtResource("2_dww6y")
-offset = Vector2(0, -32)
+offset = Vector2(6, -32)
 hframes = 4
 vframes = 8
 
@@ -183,3 +210,11 @@ position = Vector2(0, -11)
 collision_mask = 8
 collide_with_areas = true
 script = ExtResource("7_evo5w")
+
+[node name="StaffHitbox" type="Area2D" parent="."]
+
+[node name="StaffHitbox" type="CollisionShape2D" parent="StaffHitbox"]
+position = Vector2(19.625, -11.5)
+shape = SubResource("RectangleShape2D_cio05")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

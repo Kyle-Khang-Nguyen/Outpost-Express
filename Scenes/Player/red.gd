@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 signal lantern_state_changed(state: bool)
 
+@onready var staff_swing: AudioStreamPlayer2D = $StaffSwing
+
+
 @onready var sprite: Sprite2D = $PlayerSprite
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var lantern_pivot: Node2D = $LanternSide/LanternPivot
@@ -24,7 +27,7 @@ signal lantern_state_changed(state: bool)
 @export var movement_speed : float = 200
 var character_direction : Vector2
 
-
+var is_attacking: bool = false
 var remaining_fuel = GameManager.fuel_amount
 var lantern_on := true
 
@@ -45,6 +48,13 @@ func _process(_delta):
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		attack()
+		
+	if is_attacking:
+		velocity = Vector2.ZERO
+		return
+	
 	if Input.is_action_just_pressed("interact"):
 		for item in get_tree().get_nodes_in_group("DeliveryItems"):
 			if global_position.distance_to(item.global_position) < 16:
@@ -70,12 +80,26 @@ func _physics_process(delta: float) -> void:
 	lantern_target.position.y = lantern_height
 	
 	if character_direction:
+		if is_attacking:
+			return
 		velocity = character_direction * movement_speed
 		if !anim.is_playing() or anim.current_animation != "walk":
 			anim.play("walk")
 	else:
+		if is_attacking:
+			return
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
 		if !anim.is_playing() or anim.current_animation != "idle":
 			anim.play("idle")
 			
 	move_and_slide()
+
+func attack() -> void:
+	is_attacking = true
+	staff_swing.play()
+	anim.play("attack")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if is_attacking:
+		is_attacking = false
