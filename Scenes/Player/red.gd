@@ -9,6 +9,8 @@ signal lantern_state_changed(state: bool)
 @onready var sprite: Sprite2D = $PlayerSprite
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var lantern_pivot: Node2D = $LanternSide/LanternPivot
+@onready var staff_hitbox: Area2D = $StaffHitbox
+var staff_hitbox_offset: int = 19
 
 @onready var lantern_side: Node2D = $LanternSide
 @export var lantern_side_offset: float = 16.0
@@ -71,9 +73,11 @@ func _physics_process(delta: float) -> void:
 	if character_direction.x > 0:
 		sprite.flip_h = false
 		lantern_target.position.x = lantern_side_offset
+		staff_hitbox.position.x = staff_hitbox_offset
 	elif character_direction.x < 0:
 		sprite.flip_h = true
 		lantern_target.position.x = -lantern_side_offset
+		staff_hitbox.position.x = -staff_hitbox_offset + 10
 
 	lantern_target.position.y = lantern_height
 	

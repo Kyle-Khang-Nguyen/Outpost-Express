@@ -58,13 +58,15 @@ offset = Vector2(0, -74)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 light_mask = 0
-position = Vector2(73, -8)
+position = Vector2(110, 55)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h6jop")
 offset = Vector2(-31, -54)
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 light_mask = 0
-position = Vector2(9, -8)
+position = Vector2(34, 55)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h6jop")
 offset = Vector2(-31, -54)
 
@@ -84,7 +86,7 @@ occluder = SubResource("OccluderPolygon2D_wf2js")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = 1
-position = Vector2(41.658653, -61.34134)
+position = Vector2(47.658653, -51.34134)
 scale = Vector2(1.2134165, 1.2134165)
 energy = 16.0
 texture = ExtResource("2_vr8ee")
@@ -92,7 +94,7 @@ texture = ExtResource("2_vr8ee")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 light_mask = 2
 z_index = 1
-position = Vector2(41.658653, -61.34134)
+position = Vector2(47.658653, -51.34134)
 scale = Vector2(0.5257821, 0.5257821)
 energy = 16.0
 texture = ExtResource("2_vr8ee")
@@ -106,7 +108,7 @@ texture = ExtResource("3_tdyri")
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
 z_index = 1
-position = Vector2(-22.341347, -61.341347)
+position = Vector2(-28.341347, -51.341347)
 scale = Vector2(1.2134165, 1.2134165)
 energy = 16.0
 texture = ExtResource("2_vr8ee")
@@ -114,14 +116,14 @@ texture = ExtResource("2_vr8ee")
 [node name="PointLight2D5" type="PointLight2D" parent="."]
 light_mask = 2
 z_index = 1
-position = Vector2(-22.341347, -61.341347)
+position = Vector2(-28.341347, -51.341347)
 scale = Vector2(0.5257821, 0.5257821)
 energy = 16.0
 texture = ExtResource("2_vr8ee")
 
 [node name="PointLight2D6" type="PointLight2D" parent="."]
 z_index = 1
-position = Vector2(-22.341347, -61.341347)
+position = Vector2(-28.341347, -51.341347)
 scale = Vector2(0.25, 0.25)
 energy = 30.0
 texture = ExtResource("3_tdyri")

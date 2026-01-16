@@ -66,6 +66,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Darkness" type="Node2D" parent="Objects/Red"]
+visible = false
 position = Vector2(25, 33)
 
 [node name="ColorRect" type="ColorRect" parent="Objects/Red/Darkness"]
