@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp8k8bqjqv25g"]
+[gd_scene load_steps=20 format=3 uid="uid://cp8k8bqjqv25g"]
 
 [ext_resource type="Texture2D" uid="uid://bamoxdvdw4cce" path="res://Assets/villagethings/2 Objects/7 House/4_inside.png" id="1_h6jop"]
 [ext_resource type="Texture2D" uid="uid://cvdifh63jxva3" path="res://Assets/villagethings/2 Objects/7 House/4.png" id="1_tdyri"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://df5dnccvhc864" path="res://Assets/Characters/Player/Big_Light_Bright_Yellow.png" id="2_vr8ee"]
 [ext_resource type="Texture2D" uid="uid://1yvykjslbco0" path="res://Assets/Characters/Player/Lantern.png" id="3_hs0t1"]
 [ext_resource type="Texture2D" uid="uid://qraler3fbcr8" path="res://Assets/Characters/Player/Lantern_Light_Bright_Yellow.png" id="3_tdyri"]
+[ext_resource type="Script" uid="uid://cwix0ul12gs6r" path="res://Scenes/Objects/Outposts/go_to_outpost_scene_area.gd" id="5_wf2js"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv73b"]
 atlas = ExtResource("1_h6jop")
@@ -54,6 +55,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdyri"]
 size = Vector2(104, 45.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyrc4"]
+size = Vector2(22, 15.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v3vl"]
 size = Vector2(54.5, 31)
@@ -108,6 +112,15 @@ offset = Vector2(-31, -54)
 position = Vector2(37, -106.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_tdyri")
+
+[node name="GoToOutpostSceneArea" type="Area2D" parent="."]
+script = ExtResource("5_wf2js")
+
+[node name="GoToOutpostScene" type="CollisionShape2D" parent="GoToOutpostSceneArea"]
+position = Vector2(10, -45.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_xyrc4")
+debug_color = Color(0.973841, 0, 0.43449995, 0.41960785)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(86.5, -30)
@@ -172,3 +185,5 @@ position = Vector2(-28.341347, -51.341347)
 scale = Vector2(0.25, 0.25)
 energy = 30.0
 texture = ExtResource("3_tdyri")
+
+[connection signal="area_entered" from="GoToOutpostSceneArea" to="GoToOutpostSceneArea" method="_on_area_entered"]

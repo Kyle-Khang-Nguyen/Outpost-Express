@@ -94,13 +94,13 @@ height = 28.0
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oum0q"]
-radius = 47.0
+radius = 89.35572
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cio05"]
 size = Vector2(38.75, 39)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_726f1"]
-radius = 56.32051
+radius = 22.0
 
 [node name="Red" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
@@ -202,7 +202,7 @@ collision_layer = 32
 collision_mask = 64
 
 [node name="LanternLightAreaCollider" type="CollisionShape2D" parent="LanternLightArea"]
-position = Vector2(-6, 23)
+position = Vector2(0, -23)
 scale = Vector2(1.455935, 1.455935)
 shape = SubResource("CircleShape2D_oum0q")
 debug_color = Color(0, 0.75391996, 0.14517105, 0.41960785)

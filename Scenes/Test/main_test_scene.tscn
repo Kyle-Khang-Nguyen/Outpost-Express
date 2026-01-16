@@ -67,7 +67,6 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Darkness" type="Node2D" parent="Objects/Red"]
-visible = false
 position = Vector2(25, 33)
 
 [node name="ColorRect" type="ColorRect" parent="Objects/Red/Darkness"]
@@ -88,6 +87,7 @@ color = Color(0.034876373, 0.008635213, 0.034876645, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="NPC" parent="Objects/Red/Darkness" instance=ExtResource("4_b0awa")]
+visible = false
 position = Vector2(-135, 63)
 
 [node name="Sillouhettes" type="Node2D" parent="."]
