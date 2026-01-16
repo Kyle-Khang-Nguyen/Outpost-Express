@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://cog76ap8a1gt2"]
+[gd_scene load_steps=12 format=4 uid="uid://cog76ap8a1gt2"]
 
 [ext_resource type="PackedScene" uid="uid://4rnbeintaaxy" path="res://Scenes/Audio/Music/bg_music.tscn" id="1_8utfd"]
 [ext_resource type="TileSet" uid="uid://b27lgf1blu5ah" path="res://Tilesets/game_tileset.tres" id="1_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://g0jlluuu1but" path="res://Scenes/Player/red.tscn" id="2_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://bs88wify015ve" path="res://Scenes/Components/dropoff_spot.tscn" id="4_8kalp"]
-[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="4_b0awa"]
 [ext_resource type="Texture2D" uid="uid://do377wacdytit" path="res://Assets/MapleTales (Updated Characters)/MapleTales/Characters/BearIdle.png" id="5_b0awa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8utfd"]
@@ -66,7 +65,6 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Darkness" type="Node2D" parent="Objects/Red"]
-visible = false
 position = Vector2(25, 33)
 
 [node name="ColorRect" type="ColorRect" parent="Objects/Red/Darkness"]
@@ -85,9 +83,6 @@ grow_vertical = 2
 scale = Vector2(2.2736437, 2.2736437)
 color = Color(0.034876373, 0.008635213, 0.034876645, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="NPC" parent="Objects/Red/Darkness" instance=ExtResource("4_b0awa")]
-position = Vector2(-135, 63)
 
 [node name="Sillouhettes" type="Node2D" parent="."]
 
