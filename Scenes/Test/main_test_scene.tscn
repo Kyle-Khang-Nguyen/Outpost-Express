@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cog76ap8a1gt2"]
+[gd_scene load_steps=7 format=4 uid="uid://cog76ap8a1gt2"]
 
 [ext_resource type="PackedScene" uid="uid://4rnbeintaaxy" path="res://Scenes/Audio/Music/bg_music.tscn" id="1_8utfd"]
 [ext_resource type="TileSet" uid="uid://b27lgf1blu5ah" path="res://Tilesets/game_tileset.tres" id="1_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://g0jlluuu1but" path="res://Scenes/Player/red.tscn" id="2_ay1i4"]
 [ext_resource type="PackedScene" uid="uid://bs88wify015ve" path="res://Scenes/Components/dropoff_spot.tscn" id="4_8kalp"]
-[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="5_p4kb8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8utfd"]
 blend_mode = 3
@@ -70,5 +69,3 @@ required_item = "Package 1"
 position = Vector2(-518.5, -194)
 shape = SubResource("RectangleShape2D_p4kb8")
 debug_color = Color(0.38187823, 0.6005209, 0.36118296, 0.41960785)
-
-[node name="NPC" parent="." instance=ExtResource("5_p4kb8")]

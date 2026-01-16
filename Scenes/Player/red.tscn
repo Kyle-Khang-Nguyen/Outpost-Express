@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://g0jlluuu1but"]
+[gd_scene load_steps=15 format=3 uid="uid://g0jlluuu1but"]
 
 [ext_resource type="Script" uid="uid://by17drtefw5bn" path="res://Scenes/Player/red.gd" id="1_0i3ku"]
 [ext_resource type="Texture2D" uid="uid://1yvykjslbco0" path="res://Assets/Characters/Player/Lantern.png" id="2_0i3ku"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d4ljckphi4qlm" path="res://Scenes/Player/lantern_pivot.gd" id="3_2peue"]
 [ext_resource type="Texture2D" uid="uid://df5dnccvhc864" path="res://Assets/Characters/Player/Big_Light_Bright_Yellow.png" id="5_2peue"]
 [ext_resource type="Texture2D" uid="uid://qraler3fbcr8" path="res://Assets/Characters/Player/Lantern_Light_Bright_Yellow.png" id="6_dww6y"]
-[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="7_cio05"]
 [ext_resource type="Script" uid="uid://c1ubxgh2j0ygu" path="res://Scenes/Player/interaction.gd" id="7_evo5w"]
 
 [sub_resource type="Animation" id="Animation_2peue"]
@@ -180,9 +179,7 @@ shape = SubResource("CircleShape2D_oum0q")
 debug_color = Color(0, 0.75391996, 0.14517105, 0.41960785)
 
 [node name="InteractionRayCast" type="RayCast2D" parent="."]
-collision_mask = 2
+position = Vector2(0, -11)
+collision_mask = 8
 collide_with_areas = true
 script = ExtResource("7_evo5w")
-
-[node name="NPC" parent="." instance=ExtResource("7_cio05")]
-position = Vector2(-1, 61)
