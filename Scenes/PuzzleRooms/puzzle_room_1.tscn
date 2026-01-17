@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bysgwmbhbr2sb"]
+
+[ext_resource type="PackedScene" uid="uid://g0jlluuu1but" path="res://Scenes/Player/red.tscn" id="1_6ug57"]
+[ext_resource type="PackedScene" uid="uid://crvpwbty738xx" path="res://Scenes/PuzzleRooms/PuzzleElements/puzzle_room_1_reset_button.tscn" id="3_o6p7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ug57"]
+size = Vector2(734.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5byfo"]
+size = Vector2(781, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6p7y"]
+size = Vector2(20, 381)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwta0"]
+size = Vector2(28, 355)
+
+[node name="PuzzleRoom1" type="Node2D"]
+
+[node name="Border" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(329, 347)
+shape = SubResource("RectangleShape2D_6ug57")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(380.5, 0)
+shape = SubResource("RectangleShape2D_5byfo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, 180.5)
+shape = SubResource("RectangleShape2D_o6p7y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2(640, 171.5)
+shape = SubResource("RectangleShape2D_wwta0")
+
+[node name="Red" parent="." instance=ExtResource("1_6ug57")]
+position = Vector2(333, 225)
+
+[node name="Camera2D" type="Camera2D" parent="Red"]
+
+[node name="PuzzleRoom1ResetButton" parent="." instance=ExtResource("3_o6p7y")]
+position = Vector2(82, 267)

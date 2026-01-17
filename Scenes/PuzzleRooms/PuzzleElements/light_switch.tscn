@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://d37m4130ujb4u"]
+
+[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="1_lrmm0"]
+[ext_resource type="Script" uid="uid://n4xu5ewxngqn" path="res://Scenes/PuzzleRooms/PuzzleElements/light_switch_main.gd" id="2_7lvbd"]
+[ext_resource type="Script" uid="uid://cyww1il51w3d2" path="res://Scenes/PuzzleRooms/PuzzleElements/light_switch.gd" id="2_cpj7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq1s3"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpj7u"]
+size = Vector2(30, 30)
+
+[node name="LightSwitch" groups=["light_switch"] instance=ExtResource("1_lrmm0")]
+script = ExtResource("2_7lvbd")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" parent="." index="1"]
+script = ExtResource("2_cpj7u")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_nq1s3")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_cpj7u")

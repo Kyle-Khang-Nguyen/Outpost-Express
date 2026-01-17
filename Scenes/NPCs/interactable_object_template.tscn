@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://rh6t1q0686yc"]
+
+[ext_resource type="Texture2D" uid="uid://sx36nmcodlww" path="res://icon.svg" id="1_xl2hv"]
+[ext_resource type="Script" uid="uid://c0u0vgan1qsgo" path="res://Scripts/drawing_order.gd" id="2_62ypf"]
+[ext_resource type="Script" uid="uid://xaaf1825a8fj" path="res://npc.gd" id="3_wsjxh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0ilr"]
+radius = 15.0
+
+[node name="NPC" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_xl2hv")
+script = ExtResource("2_62ypf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_wsjxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_q0ilr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_q0ilr")
