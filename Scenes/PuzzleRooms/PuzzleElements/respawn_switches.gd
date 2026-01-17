@@ -31,8 +31,5 @@ func respawn_switches():
 		switch_instances[i].right_switch_value = light_switch_value[random_int]
 		light_switch_value.remove_at(random_int)
 	
-	for i in switch_instances.size():
-		print(switch_instances[i].right_switch_value)
-	
 	get_tree().call_group("LightSwitchReceiver", "reset_light")
 	get_tree().call_group("PuzzleRoom1Door", "reset_door")

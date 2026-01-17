@@ -6,7 +6,6 @@ func interact_with_player():
 	if !already_opened:
 		already_opened = true
 		get_tree().call_group("PuzzleRoom1Door", "_on_open_door")
-		print("open door")
 	else:
 		print("you already opened the door")
 

@@ -10,11 +10,9 @@ func interact_with_player():
 func _on_turn_switch_on():
 	light_bulb_on = true
 	warm = true
-	print("Received Signal")
 
 func _on_turn_switch_off():
 	light_bulb_on = false
-	print("turned bulb off")
 
 func reset_light():
 	light_bulb_on = false
