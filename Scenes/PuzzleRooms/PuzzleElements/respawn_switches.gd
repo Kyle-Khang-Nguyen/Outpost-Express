@@ -22,7 +22,7 @@ func respawn_switches():
 		add_child(switch_instances[i])
 		switch_instances[i].global_position.x = switch_position_x
 		switch_instances[i].global_position.y = switch_position_y
-		switch_position_x += 50
+		switch_position_x += 150
 	
 	light_switch_value = [true, false, false]
 	
@@ -33,3 +33,6 @@ func respawn_switches():
 	
 	for i in switch_instances.size():
 		print(switch_instances[i].right_switch_value)
+	
+	get_tree().call_group("LightSwitchReceiver", "reset_light")
+	get_tree().call_group("PuzzleRoom1Door", "reset_door")

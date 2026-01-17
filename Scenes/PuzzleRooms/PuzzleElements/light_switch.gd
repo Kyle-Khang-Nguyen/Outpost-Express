@@ -5,6 +5,7 @@ var turned_on = false
 
 func interact_with_player():
 	if !turned_on:
+		get_tree().call_group("PuzzleRoom1Door", "_on_close_door")
 		print("Turned on")
 		turned_on = true
 		print("I am " + str(light_switch.right_switch_value))
