@@ -65,10 +65,11 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="Darkness" type="Node2D" parent="Objects/Red"]
+[node name="Darkness2" type="Node2D" parent="Objects/Red"]
+visible = false
 position = Vector2(25, 33)
 
-[node name="ColorRect" type="ColorRect" parent="Objects/Red/Darkness"]
+[node name="ColorRect" type="ColorRect" parent="Objects/Red/Darkness2"]
 z_index = 100
 material = SubResource("CanvasItemMaterial_8utfd")
 custom_minimum_size = Vector2(1280, 720)
@@ -84,6 +85,7 @@ grow_vertical = 2
 scale = Vector2(2.2736437, 2.2736437)
 color = Color(0.034876373, 0.008635213, 0.034876645, 1)
 metadata/_edit_use_anchors_ = true
+
 
 [node name="Sillouhettes" type="Node2D" parent="."]
 

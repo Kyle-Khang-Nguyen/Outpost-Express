@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://m18asnidavg5"]
+
+[ext_resource type="Texture2D" uid="uid://b8juwxdny6anv" path="res://Assets/main-characters-home-free-top-down-pixel-art-asset/PNG/walls_floor.png" id="1_vnxek"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hktru"]
+texture = ExtResource("1_vnxek")
+texture_region_size = Vector2i(16, 8)
+3:6/0 = 0
+3:12/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+4:12/0 = 0
+
+[resource]
+tile_size = Vector2i(16, 8)
+sources/0 = SubResource("TileSetAtlasSource_hktru")
