@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d37m4130ujb4u"]
 
-[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="1_lrmm0"]
+[ext_resource type="PackedScene" uid="uid://cpw7va5p1qemp" path="res://Scenes/NPCs/npcs.tscn" id="1_lrmm0"]
 [ext_resource type="Script" uid="uid://n4xu5ewxngqn" path="res://Scenes/PuzzleRooms/PuzzleElements/light_switch_main.gd" id="2_7lvbd"]
 [ext_resource type="Script" uid="uid://cyww1il51w3d2" path="res://Scenes/PuzzleRooms/PuzzleElements/light_switch.gd" id="2_cpj7u"]
 

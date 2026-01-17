@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpw7va5p1qemp"]
+
+[ext_resource type="PackedScene" uid="uid://io2ssdhisgi5" path="res://Scenes/Templates/interactable_object_template.tscn" id="1_cw1kb"]
+[ext_resource type="Script" uid="uid://xaaf1825a8fj" path="res://npc.gd" id="2_ys85k"]
+
+[node name="NPCs" instance=ExtResource("1_cw1kb")]
+
+[node name="Area2D" parent="." index="1"]
+script = ExtResource("2_ys85k")

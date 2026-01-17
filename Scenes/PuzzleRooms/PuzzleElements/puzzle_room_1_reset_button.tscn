@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://crvpwbty738xx"]
+[gd_scene load_steps=5 format=3 uid="uid://crvpwbty738xx"]
 
-[ext_resource type="PackedScene" uid="uid://bl87g71jsgef4" path="res://Scenes/NPCs/npc.tscn" id="1_bmw16"]
+[ext_resource type="PackedScene" uid="uid://cpw7va5p1qemp" path="res://Scenes/NPCs/npcs.tscn" id="1_bmw16"]
 [ext_resource type="Script" uid="uid://c48gcg4xkpm23" path="res://Scenes/PuzzleRooms/PuzzleElements/puzzle_room_1_reset_button.gd" id="2_mkitj"]
 [ext_resource type="Script" uid="uid://baqlbfn87casn" path="res://Scenes/PuzzleRooms/PuzzleElements/respawn_switches.gd" id="3_c72sp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkitj"]
-size = Vector2(30, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c72sp"]
 size = Vector2(30, 30)
 
 [node name="PuzzleRoom1ResetButton" instance=ExtResource("1_bmw16")]
@@ -19,10 +16,11 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("2_mkitj")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_mkitj")
 
-[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-shape = SubResource("RectangleShape2D_c72sp")
+[node name="CollisionShape2D" parent="Area2D2" index="0"]
+position = Vector2(0.5, -0.5)
 
 [node name="Scripts" type="Node" parent="." index="3"]
 
