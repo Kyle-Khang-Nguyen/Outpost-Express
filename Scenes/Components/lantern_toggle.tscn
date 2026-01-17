@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hq8w65egatb8"]
+
+[ext_resource type="Script" uid="uid://djjhujtj77wsa" path="res://lantern_toggle.gd" id="1_4nm1k"]
+
+[node name="LanternToggle" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4nm1k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

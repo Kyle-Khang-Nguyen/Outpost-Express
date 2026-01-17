@@ -8,7 +8,6 @@ signal lantern_state_changed(state: bool)
 
 @onready var sprite: Sprite2D = $PlayerSprite
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var lantern_pivot: Node2D = $LanternSide/LanternPivot
 @onready var staff_hitbox: Area2D = $StaffHitbox
 var staff_hitbox_offset: int = 19
 

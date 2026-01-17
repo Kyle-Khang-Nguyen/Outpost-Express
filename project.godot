@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Outpost Express"
-run/main_scene="uid://cog76ap8a1gt2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +23,7 @@ GameManager="*res://Scenes/UI/GameManager.tscn"
 window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
+SceneTransition="*res://Scenes/UI/scene_transition.tscn"
 
 [display]
 
