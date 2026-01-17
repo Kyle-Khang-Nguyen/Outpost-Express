@@ -48,6 +48,10 @@ folder_colors={
 "res://addons/": "pink"
 }
 
+[global_group]
+
+LightSwitchReceiver=""
+
 [input]
 
 left={
